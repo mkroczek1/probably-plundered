@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/ui/inquisition_raid_view.gd" id="1_raid"]
+
+[node name="InquisitionRaidEvent" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_raid")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.0313726, 0.0313726, 0.941176)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(900, 520)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -260.0
+offset_right = 450.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LblWarning" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "🚨 EMERGENCY INQUISITION RAID IN PROGRESS! 🚨"
+horizontal_alignment = 1
+
+[node name="LblTimer" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+text = "TIME TO ENTRY: 20.0 SECONDS!"
+horizontal_alignment = 1
+
+[node name="BarTimer" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="LblStatus" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 15
+text = "Contraband detected on counter! Click items to stash them into the cellar!"
+horizontal_alignment = 1
+
+[node name="GridItems" type="GridContainer" parent="VBox"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+columns = 3
+
+[node name="HBoxActions" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BtnSealTrapdoor" type="Button" parent="VBox/HBoxActions"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🪤 Seal Floor-Safe Trapdoor"
+
+[node name="BtnLightIncense" type="Button" parent="VBox/HBoxActions"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🕯️ Light Holy Incense Brazier"
+
+[node name="BtnOpenDoor" type="Button" parent="VBox/HBoxActions"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🚪 Open Door Early (Ready)"

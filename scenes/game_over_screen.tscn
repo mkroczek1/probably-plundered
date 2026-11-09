@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/ui/game_over_screen.gd" id="1_over"]
+
+[node name="GameOverScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_over")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.03, 0.03, 0.94)
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(900, 560)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -280.0
+offset_right = 450.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="LblHeader" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "THE RECKONING HAS COME"
+horizontal_alignment = 1
+
+[node name="LblTitle" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.701961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 18
+text = "Outcome Title"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="TxtNarrative" type="RichTextLabel" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Narrative epilogue..."
+
+[node name="LblStats" type="RichTextLabel" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+bbcode_enabled = true
+text = "Final dossier stats..."
+
+[node name="BtnRestart" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🔄 Begin New Pawnshop Ledger"

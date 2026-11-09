@@ -1,0 +1,185 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/ui/counter_ui.gd" id="1_counter"]
+[ext_resource type="Script" path="res://src/ui/portrait_drawer.gd" id="2_port"]
+[ext_resource type="Script" path="res://src/ui/relic_icon_drawer.gd" id="3_icon"]
+
+[node name="ShopCounterView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_counter")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 70.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="CustomerCol" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Portrait" type="Control" parent="HBox/CustomerCol"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("2_port")
+
+[node name="LblName" type="Label" parent="HBox/CustomerCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.941176, 0.541176, 1)
+theme_override_font_sizes/font_size = 18
+text = "Customer Name"
+horizontal_alignment = 1
+
+[node name="LblTitle" type="Label" parent="HBox/CustomerCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "Archetype / Title"
+horizontal_alignment = 1
+
+[node name="LblPatience" type="Label" parent="HBox/CustomerCol"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Patience: ❤️❤️❤️❤️"
+horizontal_alignment = 1
+
+[node name="TxtDialogue" type="RichTextLabel" parent="HBox/CustomerCol"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Customer dialogue appears here..."
+
+[node name="ActionCol" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="PnlItem" type="PanelContainer" parent="HBox/ActionCol"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox/ActionCol/PnlItem"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RelicIcon" type="Control" parent="HBox/ActionCol/PnlItem/VBox"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_icon")
+
+[node name="LblTitle" type="Label" parent="HBox/ActionCol/PnlItem/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.701961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "Item Offered for Appraisal"
+horizontal_alignment = 1
+
+[node name="LblDetails" type="Label" parent="HBox/ActionCol/PnlItem/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 13
+text = "Category & preliminary notes"
+horizontal_alignment = 1
+
+[node name="BtnInspect" type="Button" parent="HBox/ActionCol/PnlItem/VBox"]
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🔬 Examine on Inspection Table"
+
+[node name="PnlShopSelect" type="PanelContainer" parent="HBox/ActionCol"]
+visible = false
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox/ActionCol/PnlShopSelect"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblPrompt" type="Label" parent="HBox/ActionCol/PnlShopSelect/VBox"]
+layout_mode = 2
+text = "Customer wishes to buy! Select an item from shop inventory:"
+
+[node name="OptInventory" type="OptionButton" parent="HBox/ActionCol/PnlShopSelect/VBox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="BtnSelectToSell" type="Button" parent="HBox/ActionCol/PnlShopSelect/VBox"]
+layout_mode = 2
+text = "Select Item to Negotiate"
+
+[node name="HaggleBox" type="VBoxContainer" parent="HBox/ActionCol"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblPriceInfo" type="Label" parent="HBox/ActionCol/HaggleBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.941176, 0.541176, 1)
+theme_override_font_sizes/font_size = 14
+text = "Asking Price: 150 G"
+
+[node name="HBoxControls" type="HBoxContainer" parent="HBox/ActionCol/HaggleBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SpinOffer" type="SpinBox" parent="HBox/ActionCol/HaggleBox"]
+custom_minimum_size = Vector2(160, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100000.0
+step = 5.0
+value = 150.0
+
+[node name="BtnOffer" type="Button" parent="HBox/ActionCol/HaggleBox"]
+custom_minimum_size = Vector2(160, 38)
+layout_mode = 2
+text = "💬 Propose Offer"
+
+[node name="HBoxTactics" type="HBoxContainer" parent="HBox/ActionCol/HaggleBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnLeverage" type="Button" parent="HBox/ActionCol/HaggleBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "⚡ Press Leverage (Stolen / Counterfeit Flaw)"
+
+[node name="BtnFlatter" type="Button" parent="HBox/ActionCol/HaggleBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "✨ Flatter Customer Weakness"
+
+[node name="DecisionBox" type="HBoxContainer" parent="HBox/ActionCol"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BtnAccept" type="Button" parent="HBox/ActionCol/DecisionBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🤝 Accept Deal"
+
+[node name="BtnReject" type="Button" parent="HBox/ActionCol/DecisionBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🚪 Reject & Turn Away"
+
+[node name="BtnConfiscate" type="Button" parent="HBox/ActionCol/DecisionBox"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🚨 Turn In to Inquisition"

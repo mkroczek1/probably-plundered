@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/ui/inspection_table_view.gd" id="1_insp"]
+[ext_resource type="Script" path="res://src/ui/relic_icon_drawer.gd" id="2_icon"]
+
+[node name="InspectionTable" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_insp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0431373, 0.0352941, 0.882353)
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1040, 560)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -280.0
+offset_right = 520.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LblTitle" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.701961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "SKEUOMORPHIC APPRAISAL WORKBENCH"
+horizontal_alignment = 1
+
+[node name="HBoxTable" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="ItemCenter" type="VBoxContainer" parent="Panel/VBox/HBoxTable"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="RelicIcon" type="Control" parent="Panel/VBox/HBoxTable/ItemCenter"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("2_icon")
+
+[node name="LblItemName" type="Label" parent="Panel/VBox/HBoxTable/ItemCenter"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 16
+text = "Relic Name"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LblCategory" type="Label" parent="Panel/VBox/HBoxTable/ItemCenter"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "Category"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LblAppraised" type="Label" parent="Panel/VBox/HBoxTable/ItemCenter"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.941176, 0.541176, 1)
+theme_override_font_sizes/font_size = 14
+text = "Appraised: 150 G"
+horizontal_alignment = 1
+
+[node name="ToolsCol" type="VBoxContainer" parent="Panel/VBox/HBoxTable"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="BtnMonocle" type="Button" parent="Panel/VBox/HBoxTable/ToolsCol"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "🔍 Jeweler's Monocle\n(Visual Scrutiny & Stolen Marks)"
+
+[node name="BtnTuningFork" type="Button" parent="Panel/VBox/HBoxTable/ToolsCol"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "🍴 Mana-Tuning Fork\n(Enchantment Authenticator)"
+
+[node name="BtnLitmus" type="Button" parent="Panel/VBox/HBoxTable/ToolsCol"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "🧂 Litmus Salt & Holy Water\n(Curse & Demonic Detection)"
+
+[node name="BtnScale" type="Button" parent="Panel/VBox/HBoxTable/ToolsCol"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+text = "⚖️ Precision Balance Scale\n(Material Density Analysis)"
+
+[node name="NotebookCol" type="VBoxContainer" parent="Panel/VBox/HBoxTable"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TxtLog" type="RichTextLabel" parent="Panel/VBox/HBoxTable/NotebookCol"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Appraiser's notes will appear here..."
+
+[node name="BtnBack" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "✓ Return to Front Counter"

@@ -1,0 +1,15 @@
+.godot/
+bin/
+upload/
+builds/
+.cache/
+.config/
+.local/
+.gemini
+.gemini/
+.bash*
+.profile
+.gitconfig
+*.tmp
+*.tpz
+*.log

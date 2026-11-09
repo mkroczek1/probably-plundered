@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://src/core/main_game_coordinator.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/shop_counter_view.tscn" id="3_counter"]
+[ext_resource type="PackedScene" path="res://scenes/backroom_workshop.tscn" id="4_workshop"]
+[ext_resource type="PackedScene" path="res://scenes/inspection_table.tscn" id="5_insp"]
+[ext_resource type="PackedScene" path="res://scenes/inquisition_raid_event.tscn" id="6_raid"]
+[ext_resource type="PackedScene" path="res://scenes/gazette_modal.tscn" id="7_gaz"]
+[ext_resource type="PackedScene" path="res://scenes/game_over_screen.tscn" id="8_over"]
+[ext_resource type="Script" path="res://src/ui/toast_manager.gd" id="9_toast"]
+
+[node name="MainGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0705882, 0.0588235, 1)
+
+[node name="ShopCounterView" parent="." instance=ExtResource("3_counter")]
+layout_mode = 1
+
+[node name="BackroomWorkshop" parent="." instance=ExtResource("4_workshop")]
+layout_mode = 1
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+layout_mode = 1
+
+[node name="InspectionTable" parent="." instance=ExtResource("5_insp")]
+visible = false
+layout_mode = 1
+
+[node name="InquisitionRaidEvent" parent="." instance=ExtResource("6_raid")]
+visible = false
+layout_mode = 1
+
+[node name="GazetteModal" parent="." instance=ExtResource("7_gaz")]
+layout_mode = 1
+
+[node name="GameOverScreen" parent="." instance=ExtResource("8_over")]
+visible = false
+layout_mode = 1
+
+[node name="ToastManager" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_toast")

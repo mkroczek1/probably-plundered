@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/ui/gazette_modal.gd" id="1_gaz"]
+
+[node name="GazetteModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gaz")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0627451, 0.0509804, 0.901961)
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1040, 580)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -290.0
+offset_right = 520.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="LblDate" type="Label" parent="Panel/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.984314, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 14
+text = "OAKHAVEN GAZETTE - Day 1"
+
+[node name="LblVol" type="Label" parent="Panel/VBox/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "THE HONEST KOBOLD MORNING CHRONICLE"
+
+[node name="LblHeadline" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.701961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 20
+text = "📰 MAW EXPEDITION REACHES 40TH TIER!"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="HBoxContent" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="VBoxNews" type="VBoxContainer" parent="Panel/VBox/HBoxContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TxtMarket" type="RichTextLabel" parent="Panel/VBox/HBoxContent/VBoxNews"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+bbcode_enabled = true
+text = "Market Trends..."
+
+[node name="TxtBounty" type="RichTextLabel" parent="Panel/VBox/HBoxContent/VBoxNews"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+bbcode_enabled = true
+text = "Police Blotter..."
+
+[node name="TxtEdict" type="RichTextLabel" parent="Panel/VBox/HBoxContent/VBoxNews"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Inquisition Edict..."
+
+[node name="VBoxLedger" type="VBoxContainer" parent="Panel/VBox/HBoxContent"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+
+[node name="TxtLedger" type="RichTextLabel" parent="Panel/VBox/HBoxContent/VBoxLedger"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Shop Ledger..."
+
+[node name="BtnOpenShop" type="Button" parent="Panel/VBox"]
+custom_minimum_size = Vector2(320, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🪙 Open Counter & Greet Customers"

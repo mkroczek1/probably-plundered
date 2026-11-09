@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a1b18" />
+      <stop offset="100%" stop-color="#120c0a" />
+    </radialGradient>
+    <radialGradient id="gem" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#4c1d95" />
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#bg)" stroke="#78350f" stroke-width="4" />
+  <!-- Crossed daggers -->
+  <path d="M24 104 L104 24" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" />
+  <path d="M104 104 L24 24" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" />
+  <!-- Relic Goblet / Skull -->
+  <circle cx="64" cy="56" r="32" fill="#d97706" opacity="0.2" />
+  <circle cx="64" cy="56" r="26" fill="#1c1917" stroke="url(#gold)" stroke-width="3" />
+  <!-- Monocle on right eye -->
+  <circle cx="72" cy="54" r="10" fill="url(#gem)" stroke="#eab308" stroke-width="2" />
+  <!-- Left eye socket -->
+  <ellipse cx="54" cy="54" rx="6" ry="8" fill="#450a0a" />
+  <!-- Teeth / Grin -->
+  <path d="M52 70 Q64 78 76 70" stroke="#fef08a" stroke-width="3" fill="none" stroke-linecap="round" />
+  <!-- Sparkles -->
+  <polygon points="64,16 67,24 75,27 67,30 64,38 61,30 53,27 61,24" fill="#fbbf24" />
+  <polygon points="106,80 108,85 113,87 108,89 106,94 104,89 99,87 104,85" fill="#c084fc" />
+</svg>

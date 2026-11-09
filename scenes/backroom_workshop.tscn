@@ -1,0 +1,177 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/ui/workshop_ui.gd" id="1_work"]
+[ext_resource type="Script" path="res://src/ui/relic_icon_drawer.gd" id="2_icon"]
+
+[node name="BackroomWorkshop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_work")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 70.0
+offset_right = -24.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="LblTitle" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.984314, 0.701961, 0.0313726, 1)
+theme_override_font_sizes/font_size = 18
+text = "THE HONEST KOBOLD - BACKROOM LAUNDERING & FORGERY WORKSHOP"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="InvCol" type="VBoxContainer" parent="VBox/HBox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblInv" type="Label" parent="VBox/HBox/InvCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "Shop Inventory Item:"
+
+[node name="OptInventory" type="OptionButton" parent="VBox/HBox/InvCol"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="PnlPreview" type="PanelContainer" parent="VBox/HBox/InvCol"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBox/HBox/InvCol/PnlPreview"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RelicIcon" type="Control" parent="VBox/HBox/InvCol/PnlPreview/VBox"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("2_icon")
+
+[node name="LblInfo" type="Label" parent="VBox/HBox/InvCol/PnlPreview/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "Item details..."
+autowrap_mode = 2
+
+[node name="StationsCol" type="VBoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="VBoxCurse" type="VBoxContainer" parent="VBox/HBox/StationsCol"]
+layout_mode = 2
+
+[node name="LblCurse" type="Label" parent="VBox/HBox/StationsCol/VBoxCurse"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.5, 0.95, 1)
+text = "🧪 Curse-Washing Vats:"
+
+[node name="HBoxCurseBtns" type="HBoxContainer" parent="VBox/HBox/StationsCol/VBoxCurse"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnPurify" type="Button" parent="VBox/HBox/StationsCol/VBoxCurse/HBoxCurseBtns"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🕊️ Cleanse Curse (Sanctify for Guild/Inq)"
+
+[node name="BtnExtractToxin" type="Button" parent="VBox/HBox/StationsCol/VBoxCurse/HBoxCurseBtns"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "☠️ Bottle Curse Essence (Sell Toxin +Gold / +Heat)"
+
+[node name="VBoxGrind" type="VBoxContainer" parent="VBox/HBox/StationsCol"]
+layout_mode = 2
+
+[node name="LblGrind" type="Label" parent="VBox/HBox/StationsCol/VBoxGrind"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.3, 1)
+text = "⚒️ Rune Grinding & Re-Stamping Anvil:"
+
+[node name="BtnGrind" type="Button" parent="VBox/HBox/StationsCol/VBoxGrind"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Chisel Off Stolen Noble Crests (Removes Stolen Flag & Heat)"
+
+[node name="VBoxCellar" type="VBoxContainer" parent="VBox/HBox/StationsCol"]
+layout_mode = 2
+
+[node name="BtnStoreCellar" type="Button" parent="VBox/HBox/StationsCol/VBoxCellar"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "⬇️ Stash Selected Item in Hidden Floor Safe"
+
+[node name="VBoxFence" type="VBoxContainer" parent="VBox/HBox/StationsCol"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LblFence" type="Label" parent="VBox/HBox/StationsCol/VBoxFence"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+text = "🌃 Midnight Informants & Victory Preparations:"
+
+[node name="BtnBribe" type="Button" parent="VBox/HBox/StationsCol/VBoxFence"]
+layout_mode = 2
+text = "🪙 Bribe City Watch Guard (400G ➔ Heat -25)"
+
+[node name="BtnForgePassport" type="Button" parent="VBox/HBox/StationsCol/VBoxFence"]
+layout_mode = 2
+text = "📜 Forge Diplomatic Passport (1,200G)"
+
+[node name="BtnBuyDiamond" type="Button" parent="VBox/HBox/StationsCol/VBoxFence"]
+layout_mode = 2
+text = "💎 Purchase Uncut Celestial Diamond (50,000G)"
+
+[node name="BtnHolyWard" type="Button" parent="VBox/HBox/StationsCol/VBoxFence"]
+layout_mode = 2
+text = "✨ Install Holy Cellar Ward (1,500G)"
+
+[node name="CellarCol" type="VBoxContainer" parent="VBox/HBox"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LblCellar" type="Label" parent="VBox/HBox/CellarCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "False-Bottom Cellar:"
+
+[node name="LblCellarStatus" type="Label" parent="VBox/HBox/CellarCol"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.6, 0.3, 1)
+theme_override_font_sizes/font_size = 12
+text = "Slots: 0 / 4"
+
+[node name="OptCellar" type="OptionButton" parent="VBox/HBox/CellarCol"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="BtnRetrieveCellar" type="Button" parent="VBox/HBox/CellarCol"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+text = "⬆️ Move from Cellar to Shop"
+
+[node name="BtnSleep" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(360, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🌙 Finalize Night & Advance to Next Morning"
