@@ -1,0 +1,49 @@
+name: Build & Release Windows Game
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+jobs:
+  export-windows:
+    name: Export Windows 64-bit Game
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.7.2
+          use-dotnet: false
+
+      - name: Export Windows Desktop Executable
+        run: |
+          mkdir -p builds/windows
+          godot --headless --export-release "Windows Desktop" builds/windows/probably_plundered.exe
+          cd builds/windows
+          zip -9 probably_plundered_windows_x64.zip probably_plundered.exe
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: probably_plundered_windows_x64
+          path: builds/windows/probably_plundered_windows_x64.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.0.0
+          name: "Probably Plundered v1.0.0 (Windows Release)"
+          draft: false
+          prerelease: false
+          files: builds/windows/probably_plundered_windows_x64.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
